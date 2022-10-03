@@ -1,0 +1,248 @@
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-actions">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <button (click)="go_back()" class="btn btn-primary">
+                <i class="fa fa-arrow-left"></i> Regresar
+              </button>
+              <h3 class="text-themecolor">Panel Parcela Demostrativa</h3>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <a class="btn btn-warning" data-toggle="modal" data-target=".example2-modal-lg"><i class="fa fa-plus"></i>
+                Agregar actividad</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Id_parcela</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Etapa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                  <tr *ngFor="let datos of registros">
+                    <td>{{ datos.id }}</td>
+                    <td>{{ datos.id_parcela }}</td>
+                    <td>{{ datos.tipo }}</td>
+                    <td>{{ datos.etapa }}</td>
+                    <td>
+                      <a class="btn btn-warning" (click)="get_registros(datos.id_parcela)" data-toggle="modal"
+                        data-target=".modal1-dialog modal-xl"><i class="fa fa-edit"></i></a>
+                    </td>
+                    <td>
+                      <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Formulario modal -->
+
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <!-- sample modal content -->
+      <div class="modal fade example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myLargeModalLabel">Registrar actividad/insumo</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <form>
+              <div class="card-body">
+                <div class="form-body">
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <input type="text" placeholder="Fecha" name="registros.fecha" [(ngModel)]="registros.fecha"
+                          [bsConfig]="datepickerConfig" class="form-control" bsDatepicker />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Etapa fenológica</mat-label>
+                          <select matNativeControl name="registros.etapa" required>
+                            <option value="PS">Pre Siembra (PS)</option>
+                            <option value="S">Siembra (S 0-3 días)</option>
+                            <option value="DS">Después de la siembra (DS 3-6 días)</option>
+                            <option value="V3">V3 (20-25 días)</option>
+                            <option value="V4">V4 (25-30 días)</option>
+                            <option value="V5">V5 (30-35 días)</option>
+                            <option value="V6">V6 (35-45 días)</option>
+                            <option value="V7_V9">V7 - V9</option>
+                            <option value="V10">V10 (55-60 días)</option>
+                            <option value="R1">R1 (65-75 días)</option>
+                            <option value="R2">R2</option>
+                            <option value="R3">R3 a Senescencia</option>
+                            <option value="Cosecha">Cosecha</option>
+                            <option value="PostC">PostCosecha</option>
+                            <option value="Interciclo">Interciclo</option>
+                          </select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Actividad/insumo</mat-label>
+                          <input matInput type="text" placeholder="Actividad" name="registros.actividad" required />
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Categoría Acci-Mici</mat-label>
+                          <select matNativeControl name="registros.categoria" required>
+                            <option value="AS">Acondicionamiento del suelo</option>
+                            <option value="CS">Conservación de suelos</option>
+                            <option value="S">Siembra</option>
+                            <option value="NS">Nutrición vía suelo</option>
+                            <option value="NF">Nutrición vía foliar</option>
+                            <option value="MF">Manejo fitosanitario</option>
+                            <option value="IRV">Inductores de resistencia vegetal</option>
+                            <option value="IP">Inductores de productividad</option>
+                            <option value="Cosecha">Cosecha</option>
+                            <option value="PC">PostCosecha</option>
+                            <option value="MAI">Manejo para el control de arvenses (interciclo, otro)</option>
+                            <option value="Otros">Otros</option>
+                          </select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                 
+
+                    </div>
+                      <div class="row">
+
+
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Unidad de medida</mat-label>
+                              <select matNativeControl name="registros.unidad" [(ngModel)]="registros.unidad" required>
+                                <option value="Unidad">Unidad</option>
+                                <option value="Dosis">Dosis</option>
+                                <option value="Hectárea">Hectárea</option>
+                                <option value="Jornal">Jornal</option>
+                                <option value="Gramos">Gramos</option>
+                                <option value="Kilogramos">Kilogramos</option>
+                                <option value="Tonelada">Tonelada</option>
+                                <option value="Litros">Litros</option>
+                                <option value="Manojo o rollo">
+                                  Manojo o rollo
+                                </option>
+                                <option value="Paca">Paca</option>
+                                <option value="Paquete">Paquete</option>
+                                <option value="Pieza">Pieza</option>
+                              </select>
+                            </mat-form-field>
+                        
+                          </div>
+                        </div>
+    
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Cantidad</mat-label>
+                                <input matInput type="number" placeholder="Id parcela" name="registros.cantidad"
+                                  [(ngModel)]="registros.cantidad" required />
+                              </mat-form-field>
+                            </div>
+                          </div>
+    
+                          
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <mat-label>Precio</mat-label>
+                                  <input matInput type="number" placeholder="precio" name="registros.precio"
+                                    [(ngModel)]="registros.precio" required />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <p>
+                              <mat-checkbox [formControl]="disableSelect" name="registros.arvenses">Control de Arvenses
+                              </mat-checkbox>
+                            </p>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Práctica para control de arvenses</mat-label>
+                              <mat-select [disabled]="!disableSelect.value" name="registros.practica">
+                                <mat-option value="1">Asociación de cultivos o cultivos
+                                  intercalados
+                                </mat-option>
+                                <mat-option value="2">Rotación de cultivos</mat-option>
+                                <mat-option value="3">Plantas de cobertera</mat-option>
+                                <mat-option value="4">Mulch o acolchado orgánico</mat-option>
+                                <mat-option value="5">Sombreado</mat-option>
+                                <mat-option value="6">Deshierbe manual o chaponeo</mat-option>
+                                <mat-option value="7">Deshierbe mecanizado con desbrozadora,
+                                  desmalezadora o motoazada</mat-option>
+                                <mat-option value="8">Escarda o aporque manual o mecanizado
+                                </mat-option>
+                                <mat-option value="9">Rastreo a tierra venida o falsa
+                                  siembra</mat-option>
+                                <mat-option value="10">Flameo</mat-option>
+                                <mat-option value="11">Desecante orgánico</mat-option>
+                                <mat-option value="12">Desecante base urea</mat-option>
+                                <mat-option value="13">Inhibidor homeopático</mat-option>
+                                <mat-option value="14">Inhibidor alelopático de
+                                  crecimiento</mat-option>
+                                <mat-option value="15">Sellador pre-emergente</mat-option>
+                                <mat-option value="16">Glifosato y otros herbicidas
+                                  químicos</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        
+                        
+                        
+    
+                        
+        
+                          </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>

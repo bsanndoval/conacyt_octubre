@@ -1,0 +1,80 @@
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid animated fadeIn">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Registrar predio</h3>
+            </div>
+            <div class="">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                            <div class="form-body">
+                                <h3 class="card-title">Datos del predio</h3>
+                                <hr>
+                                <div class="row p-t-20">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                                <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Productor</mat-label>
+                                                <input matInput placeholder="Nombre del Productor" name = "predios.productor" [(ngModel)]="predios.productor" required>
+                                            </mat-form-field>     
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                                <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Predio</mat-label>
+                                                <input matInput placeholder="Nombre del Predio" name ="predios.predio" [(ngModel)]="predios.predio" required>
+                                            </mat-form-field>     
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                                <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Predio</mat-label>
+                                                <input matInput placeholder="Nombre del Predio" name ="predios.predio" [(ngModel)]="predios.predio">
+                                            </mat-form-field>     
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>clavenum</label>
+                                            <input type="number"  class="form-control"   placeholder="(999) 999-9999">
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Dirección</label>
+                                            <input type="text" class="form-control"  placeholder="Av. Venustiano carranza 43, Atlacomulco, Edo. De Méx.">
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->                                        
+                            </div>
+                            <div class="form-actions">
+                                <button  class="btn btn-success" (click)="crear_predio();"> <i class="fa fa-check"></i> Guardar </button> 
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- Row -->
+    </div>
+</div>   

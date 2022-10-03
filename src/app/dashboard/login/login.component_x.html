@@ -1,0 +1,39 @@
+    <div class="login-register" style="background-image:url(../../../assets/assets/images/background/arvenses.jpg);">
+        <div class="login-box card" style="opacity:.9">
+            <div class="card-body" >
+                <form class="form-horizontal form-material" id="loginForm" action="index.html"
+                 (ngSubmit)="iniciar_sesion();"
+                 [formGroup]="loginForm">
+                    <h3 class="box-title m-b-20">Sistema Anec -Conacyt</h3>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Usuario" 
+                                   formControlName = "usuario"> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-danger">
+                            <p *ngIf="invalido('usuario')">El usuario es inválido</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Contraseña"
+                                  formControlName = "passw"> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-danger">
+                            <p *ngIf="invalido('passw')">El password es inválido</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-20">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
