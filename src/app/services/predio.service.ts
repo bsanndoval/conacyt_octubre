@@ -27,6 +27,7 @@ export class PredioService {
     
   ]
 
+
  
   constructor( private http: HttpClient) { }
 
@@ -68,7 +69,7 @@ export class PredioService {
   }
 
   get_usuario() {
-    let id_usuario = localStorage.getItem("token");
+    let id_usuario = localStorage.getItem('token');
     return id_usuario;
   }
 

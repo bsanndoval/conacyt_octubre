@@ -10,16 +10,14 @@ import { PredioService } from '../services/predio.service';
 })
 
 export class DashboardComponent implements OnInit {
-nombre: any;
+
+
+
 
   constructor(public predioService: PredioService, public router: Router ) { 
 
-    console.log(predioService.menu);
-
-    let nombre = localStorage.getItem("nombre");
-
-    console.log (nombre);
     
+
   }
 
 

@@ -29,7 +29,7 @@ export class PnlDemostrativaComponent implements OnInit {
 
 
     this.datepickerConfig=Object.assign({}, {containerClass:'theme-dark-blue', showWeekNumbers:false},
-                                            {dateInputFormat: 'YYYY-MM-DD HH:MM:SS'}
+                                            {dateInputFormat: 'YYYY-MM-DD'}
                                             );
     this.bsLocaleService.use('es');
 
