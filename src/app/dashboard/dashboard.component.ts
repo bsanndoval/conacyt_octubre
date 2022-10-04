@@ -11,6 +11,7 @@ import { PredioService } from '../services/predio.service';
 
 export class DashboardComponent implements OnInit {
 
+user: string | null = '';
 
 
 
@@ -22,6 +23,9 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('usuario');
+    console.log('Ejemplo:', this.user);
+
   }
 
   logout() {

@@ -60,7 +60,7 @@
                                     <li *ngFor="let item of predioService.menu"> 
                                         <a class="waves-effect waves-dark" aria-expanded="false">
                                             <i [class]="item.icono"></i>
-                                            <p>Bienvenido "</p>
+                                            <p>Bienvenido {{user}}</p>
                                             <span class="hide-menu">{{item.titulo}}</span>
                                         </a>
                                         <ul aria-expanded="false">
